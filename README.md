@@ -156,7 +156,7 @@
   <main>
     <header>
       <h1>学生文书递交入口</h1>
-      <p>填写文书信息并上传 Word 文档，生成提交包后发给升学老师。</p>
+      <p>填写文书信息并上传 Word 文档，生成提交包后发给Lucy老师（仅限Lucy老师的学生使用该端口）。</p>
     </header>
 
     <form id="submissionForm">
