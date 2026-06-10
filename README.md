@@ -156,7 +156,7 @@
   <main>
     <header>
       <h1>学生文书递交入口</h1>
-      <p>填写文书信息并上传 Word 文档，生成提交包后发给Lucy老师（仅限Lucy老师的学生使用该端口）。</p>
+      <p>填写文书信息并上传 Word 文档，生成提交包后发给升学老师。</p>
     </header>
 
     <form id="submissionForm">
@@ -294,10 +294,17 @@
     }
 
     function submissionFilename(payload) {
-      const safe = `${payload.studentName}-${payload.school}-${payload.version}`
+      const safe = `${payload.studentName}-${payload.school}-${payload.version}-${filenameTimestamp(payload.submittedAt)}`
         .replace(/[\\/:*?"<>|]+/g, "-")
         .replace(/\s+/g, "-");
       return `${safe || "essay-submission"}.essay-submission.json`;
+    }
+
+    function filenameTimestamp(value) {
+      const date = new Date(value || Date.now());
+      const safeDate = Number.isNaN(date.getTime()) ? new Date() : date;
+      const pad = (number) => String(number).padStart(2, "0");
+      return `${safeDate.getFullYear()}-${pad(safeDate.getMonth() + 1)}-${pad(safeDate.getDate())}_${pad(safeDate.getHours())}-${pad(safeDate.getMinutes())}`;
     }
 
     function showError(message) {
