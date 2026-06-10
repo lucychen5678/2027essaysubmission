@@ -1,7 +1,4 @@
-# 2027essaysubmission
-[student-essay-submission.html](https://github.com/user-attachments/files/28757884/student-essay-submission.html)
 
-<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
